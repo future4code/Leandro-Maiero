@@ -88,8 +88,8 @@ console.log(cadastro())
 
 // Exercício 4-----------------------------------------------------------------------------------------------
 
-// const login = () => {
-//     const login = "labenu"
+
+    const login = "labenu"
 
 
 const login =() => {
@@ -107,31 +107,39 @@ const login =() => {
 
 // // Exercício 5----------------------------------------------------------------------------------------------------
 
- //const primeiraDose = () => {
+ const primeiraDose = () => {
 
 //     //  Sua lógica aqui
 
-// const nome = prompt("Digite seu nome").toLowerCase()
-// const vacina = prompt("Qual o nome da vacina tomada?").toLowerCase()
-// let tempo = ('coronavac' === 28 , 'astrazenica' === 90 , 'pfizer' === 90)
+const nome = prompt("Digite seu nome").toLowerCase()
+const vacina = prompt("Qual o nome da vacina tomada?").toLowerCase()
 
-// let usuarioVacina = [{ Usuario:(nome),Vacina:(vacina), Tempo:(tempo)
-// }]
+let tempo, data = new Date;   
 
+
+            if(vacina === "coronavac"){
+            tempo = 28
+        } else if (vacina === "astrazenica"){
+            tempo = 90
+        } else if (vacina === "pfizer"){
+            tempo = 90   
+        }
+
+        const milissegundos1dia = 86400000
+
+        const hoje = data.getTime()
+
+        const dataAtualizada = new Date(hoje + (tempo * milissegundos1dia))
+
+        const dataFormatada = dataAtualizada.toLocaleDateString("pt-BR")
+
+        return `Olá ${nome}! A próxima dose da ${vacina} é daqui a ${tempo} dias. Compareça no posto na data ${dataFormatada}.`
     
-//     if (vacina === 'coronavac'){
-        
-//     } else {
-//       console.log("vacina invalida")
-//     }
 
-    
+    }
 
+ console.log(primeiraDose())
 
-
-//}
-
- //console.log(primeiraDose())
 
 // // LOOP+CONDICIONAL
 
