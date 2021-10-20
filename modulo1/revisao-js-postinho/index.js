@@ -156,10 +156,6 @@ let tempo, data = new Date;
 
 
 
-
-
-
-
 // }
 // console.log(segundaDose("Barbara"));
 
