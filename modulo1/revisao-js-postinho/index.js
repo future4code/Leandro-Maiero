@@ -229,12 +229,10 @@ console.log(avisoAosAtrasados());
 // const nome = ("Digite seu nome")
 
 
-
 // const cadastro = () => {
 //     //  Sua lógica aqui
 // }
 // console.log(cadastro());
-
 
 
 
