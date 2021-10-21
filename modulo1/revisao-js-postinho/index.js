@@ -1,9 +1,9 @@
 
-// COMPARADORES
-// Exercício 1------------------------------------------------------------------------------------
+// // COMPARADORES
+// // Exercício 1------------------------------------------------------------------------------------
 
-// a-)Comparador de desigualdade a!==b 
-// Exemplo:
+// // a-)Comparador de desigualdade a!==b 
+// // Exemplo:
 
 function checarDesigualdade(a, b) {
 
@@ -23,7 +23,7 @@ console.log (checarIgualdade(1, 2))
 
 
 
-// c-)Faça uma função chamada "verificaSeEMaior"
+// // c-)Faça uma função chamada "verificaSeEMaior"
 
 
 function verificaSeEMaior(a, b) {
@@ -35,19 +35,19 @@ function verificaSeEMaior(a, b) {
     console.log(verificaSeEMaior(321, 2156));
 
 
-// Exercício 2------------------------------------------------------------------------------------
-//Escreva true or false para as comparações abaixo:
-// exemplo 1>2 = false
-// a-) 1==='1'= false
-// b-) 1=='1'= false
-// c-) 'a'==='b'= true
-// d-) 'b'>'a'= true
-// e-) 0!==null= true
+// // Exercício 2------------------------------------------------------------------------------------
+// //Escreva true or false para as comparações abaixo:
+// // exemplo 1>2 = false
+// // a-) 1==='1'= false
+// // b-) 1=='1'= false
+// // c-) 'a'==='b'= true
+// // d-) 'b'>'a'= true
+// // e-) 0!==null= true
 
 
-// CONDICIONAIS
+// // CONDICIONAIS
 
-// Exercício 3------------------------------------------------------------------------------------
+// // Exercício 3------------------------------------------------------------------------------------
 
 const cadastro = () => {
      const usuario = []
@@ -89,7 +89,7 @@ console.log(cadastro())
 // Exercício 4-----------------------------------------------------------------------------------------------
 
 
-    const login = "labenu"
+    
 
 
 const login =() => {
@@ -105,11 +105,10 @@ const login =() => {
 }
  console.log(login());
 
-// // Exercício 5----------------------------------------------------------------------------------------------------
+// // // Exercício 5----------------------------------------------------------------------------------------------------
 
  const primeiraDose = () => {
 
-//     //  Sua lógica aqui
 
 const nome = prompt("Digite seu nome").toLowerCase()
 const vacina = prompt("Qual o nome da vacina tomada?").toLowerCase()
@@ -145,33 +144,56 @@ let tempo, data = new Date;
 
 // // Exercício 6 -------------------------------------------------------------------------------------
 
-// const segundaDose = (nomeDoUsuario) => {
-//     const usuarios = [
-//         { nome: "Artur", imunizacao: "incompleta" },
-//         { nome: "Barbara", imunizacao: "incompleta" },
-//         { nome: "Carlos", imunizacao: "incompleta" }
-//     ]
+const segundaDose = (nomeDoUsuario) => {
+    const usuarios = [
+        { nome: "Artur", imunizacao: "incompleta" },
+        { nome: "Barbara", imunizacao: "incompleta" },
+        { nome: "Carlos", imunizacao: "incompleta" }
+    ]
+            
+            const pessoaVacina = usuarios.filter((pessoa)=>{ 
+                if(pessoa.nome === nomeDoUsuario){
+                    pessoa.imunizacao = "completa"
+                }
+                return pessoa
+            })
+            
+            
 
-//     //  Sua lógica aqui
+            console.log(pessoaVacina)
 
 
 
-// }
-// console.log(segundaDose("Barbara"));
+}
+const nomePessoa = "Barbara"
+segundaDose(nomePessoa)
 
 // // Exercício 7 --------------------------------------------------------------------------------------
 
-// const avisoAosAtrasados = () => {
-//     const usuarios = [
-//         { nome: "Artur", imunizacao: "incompleta" },
-//         { nome: "Barbara", imunizacao: "completa" },
-//         { nome: "Carlos", imunizacao: "incompleta" }
-//     ]
+const avisoAosAtrasados = () => {
+    const usuarios = [
+        { nome: "Artur", imunizacao: "incompleta" },
+        { nome: "Barbara", imunizacao: "completa" },
+        { nome: "Carlos", imunizacao: "incompleta"}
+    ]
 
-//     //  Sua lógica aqui
 
-// }
-// console.log(avisoAosAtrasados());
+        const avisoUsuario = usuarios.filter((pessoa) =>{
+            if(pessoa.imunizacao === "incompleta") {
+                return true
+            }
+
+        })
+
+        avisoUsuario.map((pessoa)=>{
+            console.log(`Olá ${pessoa.nome}! Sua imunização está ${pessoa.imunizacao}, por favor volte ao postinho para tomar a segunda dose.`)
+        })
+
+ } 
+
+avisoAosAtrasados();
+
+console.log(avisoAosAtrasados());
 
 
 // // DESAFIO------------------------------------------------------------------------------------------
@@ -181,7 +203,7 @@ let tempo, data = new Date;
 //         nome: "Artur",
 //         ano: 2000,
 //         nacionalidae: "brasileiro",
-//         senha: "123456",
+// //         senha: "123456",
 //         vacina: "pfizer",
 //         imunizacao: "incompleta"
 //     },
@@ -204,10 +226,19 @@ let tempo, data = new Date;
 
 // ]
 
+// const nome = ("Digite seu nome")
+
+
+
 // const cadastro = () => {
 //     //  Sua lógica aqui
 // }
 // console.log(cadastro());
+
+
+
+
+
 
 // const login = () => {
 //     //  Sua lógica aqui
