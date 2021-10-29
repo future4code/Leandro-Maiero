@@ -1,0 +1,244 @@
+*{font-family: 'IBM Plex Mono', monospace;
+}
+
+.page{
+    margin: 0;
+    padding: 0;
+    color: rgba(7, 7, 124, 0.746);
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+    background-size: 100%;
+
+}
+
+
+.menu{
+
+    display: block ;
+}
+  
+nav {
+        height: 70px;
+        width: 100%;
+        text-transform:uppercase;        
+        display: flex;
+        position: relative;
+        background-color: black;
+        text-transform: color #ffff;
+        z-index: 99;
+    
+}
+nav a {
+    
+        margin: 1px 55px 1px 175px;
+        text-decoration: none;
+        font-weight: bold;
+        color: blanchedalmond;
+}
+
+a:hover{
+    background-color: blueviolet;
+}
+
+.corpo{
+
+    position: relative;
+    left: 150px;
+    top: 250px;
+
+
+}
+h1{
+
+    
+    display: flex;
+    font-size: 50px;
+    text-transform:uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    right: 55px;
+    top: 35px;
+}
+h2{
+    
+    display: flex;
+    font-size: 25px;
+    letter-spacing: 4px;
+    position: relative;
+    right: 55px;
+    top: 10px;
+}
+
+img{
+
+    max-width:500px;
+    max-height:500px;
+    width: 500vw;
+    height: 500vw;
+    position: relative;
+    bottom: 0px;
+    left: 840px;
+    top: 0px;
+}
+
+.social{
+    margin-top: 1rem;
+    display: flex;
+    position: relative;
+    right: 550px;
+    left: 177px;
+    bottom: 185px;
+}
+
+.social a{
+
+    text-decoration:none;
+    color:rgba(7, 7, 124, 0.746);
+    padding: 1rem 4rem;
+    border: 1px solid rgba(7, 7, 124, 0.746);
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s ease-in-out;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer1{
+
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blanchedalmond;
+    position: relative;
+    top: 7vh;
+    
+}
+
+/* Sobre */
+
+#texto-sobre {
+
+   
+    height: 1px;
+    width: 70vh;
+    position: relative;
+    top: 250px;
+    right: 500px;
+    bottom: 00vh;
+    left: 340px;
+    text-align: justify;
+
+}
+.footer2{
+    
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blanchedalmond;
+    position:relative;
+    top: 80vh;
+     
+       
+}
+
+/* Projetos */
+
+
+.table-container {
+
+
+    margin: 200px auto;
+    width: 200px;
+    position: relative;
+    top: 1vh;
+    right: 600px;
+
+
+}
+
+
+
+
+
+
+.footer3{
+
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blanchedalmond;
+    position: relative;
+    top: 10vh;
+}
+
+/* Contato */
+
+form {
+    
+    margin: 300px auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+    
+label {
+    
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+input, textarea {
+   
+    font: 1em sans-serif;
+    width: 300px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+input:focus, textarea:focus {
+   
+    border-color: #000;
+}
+textarea {
+    
+    vertical-align: top;
+    height: 5em;    
+    resize: vertical;
+}
+.button {
+
+    padding-left: 90px; 
+}
+button {
+    
+    margin-left: .5em
+}
+
+.footer4{
+
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blanchedalmond;
+    position: relative;
+    top: 3vh;
+}
