@@ -48,6 +48,7 @@ class Post extends React.Component {
     numeroComentarios: 0
   }
 
+ 
   onClickCurtida = () => {
     console.log('Curtiu!');
     let postCurtido;
@@ -68,7 +69,7 @@ class Post extends React.Component {
   }
 
   aoEnviarComentario = () => {
-   
+  
 
 
     this.setState({
@@ -92,6 +93,7 @@ class Post extends React.Component {
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
+  
 
     return <PostContainer>
       <PostHeader>
@@ -113,6 +115,11 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
+
+       
+
+
+
       </PostFooter>
       {componenteComentario}
     </PostContainer>
