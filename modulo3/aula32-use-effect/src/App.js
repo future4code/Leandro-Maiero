@@ -1,42 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import PokeCard from "./components/PokeCard";
 
-class App extends React.Component {
-  state = {
-    
-    pokeList: [],
-    
-    pokeName: ""
-  };
 
+export default function App() {
+  const [pokeList,setPokeList]=useState([])
+  const [pokeName,setPokeName]=useState("")
 
-  componentDidMount = () => {
-    
+  useEffect(() => {
+    pegarPokemon()
+
+  }, []);
+
+  const pegarPokemon=()=>{ 
     axios
       .get("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then(response => {
-       
-        this.setState({ pokeList: response.data.results });
+      .then(res => {       
+        setPokeList(res.data.results)
       })
       .catch(err => {
         console.log(err);
-      });
-  };
+      })
+  }
 
-  changePokeName = event => {
-    this.setState({ pokeName: event.target.value });
-  };
+ 
+ const changePokeName = event => {
+  setPokeName(event.target.value)
+  }
 
-  render() {
+ 
     return (
       <div className="App">
-        
-        <select onChange={this.changePokeName}>
+          <select onChange={changePokeName}>
           <option value={""}>Nenhum</option>
-         
-          {this.state.pokeList.map(pokemon => {
+          {pokeList.map(pokemon => {
             return (
               <option key={pokemon.name} value={pokemon.name}>
                 {pokemon.name}
@@ -44,11 +42,17 @@ class App extends React.Component {
             );
           })}
         </select>
-        
-        {this.state.pokeName && <PokeCard pokemon={this.state.pokeName} />}
-      </div>
+        {pokeName && <PokeCard pokemon={pokeName} />} 
+        </div>
     );
-  }
-}
 
-export default App;
+}
+ 
+
+
+
+
+  
+
+
+
