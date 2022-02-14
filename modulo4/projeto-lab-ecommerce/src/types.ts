@@ -1,8 +1,8 @@
 export type products = {
    id: string
-   title: string
-   description: string
-   userId: string
+   name: string
+   preco: string
+   img_url: string
    
 }
 
