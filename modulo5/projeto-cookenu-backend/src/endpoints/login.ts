@@ -7,6 +7,7 @@ import { HashManager } from "../services/HashManager";
 
 
 
+
 export async function loginUser (req:Request, res: Response) {
     try{
       const{email, password} = req.body;

@@ -2,12 +2,27 @@ import { BaseDatabase } from "./BaseDatabase";
 import { User } from "../entities/User";
 
 export class UserDatabase extends BaseDatabase{
-    getUserById(id: string) {
-        throw new Error("Method not implemented.");
+   
+    public getUserById = async (id: string): Promise<User> => {
+
+        try {
+            const [user] = await BaseDatabase.connection('UsersCookenu')
+                .select('*')
+                .where({id:id})
+
+            const novoUser = user && User.toUserModel(user)
+            return novoUser
+            
+
+        } catch(error){
+            throw new Error(error.sqlMessage || error.message);
+        }
+    
+
     }
     public async createUser(user: User){
         try{
-            await BaseDatabase.connection("User").insert({
+            await BaseDatabase.connection("UsersCookenu").insert({
                 id: user.getId(),
                 name: user.getName(),
                 email: user.getEmail(),
@@ -24,7 +39,7 @@ export class UserDatabase extends BaseDatabase{
 
     public async findUserByEmail(email:string): Promise<User> {
         try{
-          const user = await BaseDatabase.connection('User')
+          const user = await BaseDatabase.connection('UsersCookenu')
           .select('*')
           .where({email:email}); 
 
@@ -40,7 +55,7 @@ export class UserDatabase extends BaseDatabase{
     public async getAllUsers(): Promise<User[]>{
         try{
 
-            const users = await BaseDatabase.connection("User").select(
+            const users = await BaseDatabase.connection("UsersCookenu").select(
                 "id",
                 "name",
                 "email",
