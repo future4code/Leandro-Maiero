@@ -1,3 +1,4 @@
+
 export type authenticationData = {
     id: string
 }
@@ -34,4 +35,16 @@ export default class User{
         private _email: string,
         private _password: string
     ){}
+}
+
+export type LoginInputDTO = {
+    email: string
+    password: string
+}
+
+
+export type SignupInputDTO = {
+    name: string,
+    email: string,
+    password: string
 }

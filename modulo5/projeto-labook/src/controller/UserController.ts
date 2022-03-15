@@ -1,13 +1,12 @@
 import {Request, Response} from 'express'
-import UserBusiness, { SignupInputDTO } from '../business/UserBusiness'
-import FirestoreUserDatabase from '../data/FirestoreUserDatabase'
-import UserData from '../data/UserData2'
+import UserBusiness from '../business/UserBusiness'
+import { SignupInputDTO, LoginInputDTO } from "../model/User"
 
 export default class UserController{
-    private userBusiness: UserBusiness
-    constructor(){
-        this.userBusiness = new UserBusiness(new UserData())
-    }
+    
+    constructor(
+        private userBusiness: UserBusiness
+    ){}
 
 
     signup = async (req: Request, res:Response) =>{
@@ -26,5 +25,9 @@ export default class UserController{
             if(error.message) return res.status(400).send(error.message)
             res.status(400).send("Erro no signup")
         }
+
     }
+  
+
+
 }
