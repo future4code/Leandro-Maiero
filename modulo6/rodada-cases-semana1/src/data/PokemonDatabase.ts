@@ -1,6 +1,9 @@
 import { Pokemon } from "../model/Pokemon";
 import { BaseDatabase } from "./BaseDatabase";
 
+
+
+
 export class PokemonDatabase extends BaseDatabase {
   public async getAllPokemons(
     name: any,
@@ -11,19 +14,21 @@ export class PokemonDatabase extends BaseDatabase {
     offset: any
   ): Promise<Pokemon[]> {
     try {
-      const pokemon = await BaseDatabase.connection("pokemonGo_")
+      const pokemon = await BaseDatabase.connection("pokemonGo")
         .select(
           "name",
-          "pokedexNnumber" as "pokedexNumber",
+          "pokedex_num",
           "generation",
-          "type",
-          "statTotal" as "statTotal",
-          "ATK",
-          "DEF",
-          "STA"
+          "type_1",
+          "type_2",
+          "statusTotal",
+          "attack",
+          "defense",
+          "stamina"
         )
         .where("name", "LIKE", `%${name}%`)
-        .where("type", "LIKE", `%${type}%`)
+        .where("type_1", "LIKE", `%${type}%`)
+        .orWhere("type_2","LIKE", `%${type}%`)
         .orderBy(sort, order)
         .limit(size)
         .offset(offset);

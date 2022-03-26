@@ -2,12 +2,15 @@ export class Pokemon {
   constructor(
     private name: string,
     private pokedexNumber: number,
+
     private generation: number,
-    private type: string,
-    private statTotal: number,
-    private atk: number,
-    private def: number,
-    private sta: number
+    private type_1: string,
+    private type_2: string,
+    
+    private attack: number,
+    private defense: number,
+    private stamina: number,
+    private statusTotal: number,
   ) {}
 
   static toPokemonModel(data: any): Pokemon {
@@ -15,11 +18,12 @@ export class Pokemon {
       data.name,
       data.pokedex_num,
       data.generation,
-      data.type,
-      data.stat_total,
-      data.atk,
-      data.def,
-      data.sta
+      data.type_1,
+      data.type_2,      
+      data.attack,
+      data.defense,
+      data.stamina,
+      data.status_total,
     );
   }
 
@@ -35,24 +39,28 @@ export class Pokemon {
     return this.generation;
   }
 
-  public getType() {
-    return this.type;
+  public getType1() {
+    return this.type_1;
     
   }
 
-  public getStatTotal() {
-    return this.statTotal;
-  }
+  public getType2() {
+    return this.type_2;
+    
+  }  
 
   public getAtk() {
-    return this.atk;
+    return this.attack;
   }
 
   public getDef() {
-    return this.def;
+    return this.defense;
   }
 
   public getSta() {
-    return this.sta;
+    return this.stamina;
+  }
+  public getStatusTotal() {
+    return this.statusTotal;
   }
 }
