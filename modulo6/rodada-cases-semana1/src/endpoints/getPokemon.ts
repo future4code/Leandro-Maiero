@@ -22,7 +22,7 @@ export async function getPokemon(req: Request, res: Response): Promise<void> {
     );
 
     res.status(200).send(pokemon);
-  } catch (error: any) {
+  } catch (error) {
     res.status(400).send(error.message);
   }
 }
