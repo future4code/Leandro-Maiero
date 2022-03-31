@@ -1,19 +1,19 @@
-import React from 'react';
-import { Router } from './routes/router';
+
+import { Router } from './router/router';
+
 
 
 const App = () => {
   return (
-    <div>
-      
+    <div>     
         
       <Router />
-              
-        
-        
-      
-    </div>
+             
+   
+      </div>  
+    
   );
 }
 
 export default App;
+

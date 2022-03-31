@@ -1,8 +1,6 @@
-import { BrowserRouter, Switch , Route} from "react-router-dom"
-import {  } from "react-router-dom"
-
-
-
+import { BrowserRouter, Route } from "react-router-dom"
+import { HomePage } from "../pages/HomePage/HomePage"
+import { Switch } from "react"
 
 
 
@@ -14,11 +12,9 @@ export const Router = () => {
                 <Route exact path="/">
                     <HomePage />
                 </Route>
-
-                <Route>
-                    <ErrorPage />
-                </Route>
+               
             </Switch>
         </BrowserRouter>
     )
 }
+
