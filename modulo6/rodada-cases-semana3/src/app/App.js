@@ -1,13 +1,14 @@
 
+import { Router } from "../routes/router";
 
 function App() {
   return (
     <div>
-      <header>
+     
         
-        olá mundo
+        <Router/>
       
-      </header>
+     
     </div>
   );
 }
