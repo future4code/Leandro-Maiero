@@ -1,17 +1,18 @@
 import logo_TMDB from '../../img/logo_TMDB.png'
-import { HeaderContainer, RetangleOne, RetangleTwo } from './styled'
+import { useHistory } from "react-router-dom";
+import { goBack } from '../../routes/coordinator'
+import { HeaderContainer, RetangleOne} from './styled'
+
 
 export default function Header() {
+    const history = useHistory();
+
     return (
     <HeaderContainer>
         <RetangleOne>
-            <img src={logo_TMDB} alt='Logo'/>
+            <img src={logo_TMDB} onClick ={() => goBack(history)}/>
         </RetangleOne>
-        <RetangleTwo>
-            <p>
-             Milhões de filmes, séries e pessoas para descobrir. Explore já.
-            </p>
-        </RetangleTwo>
+        
     </HeaderContainer>
     )
 }

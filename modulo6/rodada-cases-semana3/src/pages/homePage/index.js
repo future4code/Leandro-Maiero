@@ -1,14 +1,100 @@
-import Header from "../../components/header/index"
-import {HomePage} from './styled'
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import {BASE_URL} from '../../constants/BASE_URL'
+import {API_KEY} from '../../constants/API_KEY'
+import { goToDetailsPage } from '../../routes/coordinator';
+import { useHistory } from "react-router-dom";
+import Header from '../../components/header/index'
+import {HomePageContainer, Card, NextButton} from './styled'
+import {FilterPage} from '../../components/filter/index'
 
 
 
 
-export default function homePage() {
+
+
+const HomePage = () => {
+  const [movieData, setMovieData] = useState([]);
+
+  const history = useHistory();
+
+  const getMovies = (setData) => {
+    axios
+      .get(`${BASE_URL}/movie/popular/?${API_KEY}&language=pt-BR&page=1`)
+      .then((res) => {
+        setData(res.data.results);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  useEffect(() => {
+    getMovies(setMovieData);
+  }, []);
+
+  
+
+  const [page, setPage] = useState(1)
+
+    const pageNext = (number) => {
+        setPage(page + number)
+        window.scrollTo(0,0)
+    }
+    const pageBack = (number) => {
+        if(page >= 2){
+            setPage(page - number)
+        }
+        window.scrollTo(0,0)
+    }
+
+  
+
+  const cardInfo = movieData.map((movie) => {
     return (
-        <HomePage>
-            <Header/>
-        </HomePage>
-    )
-}
+      
 
+      
+      <div key = {movie.id}>
+        
+                
+        <Card>
+       
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} onClick={() => goToDetailsPage(history, movie.id)}/>
+        
+        <p>{movie.title}</p>
+        <p>{movie.release_date}</p>
+        </Card>      
+
+                 
+      </div>
+      
+    );
+  });
+  console.log(movieData);
+
+  return (
+
+    <div>
+      <Header/>
+    <HomePageContainer>
+
+       
+             
+      <FilterPage/>
+    
+    {cardInfo}
+    
+           
+
+     
+    {/* <button onClick={(() =>{pageBack(1)})}> VOLTAR </button> */}
+    {/* <NextButton onClick={(() =>{pageNext(2)})}> PROXIMO </NextButton> */}
+     
+
+    </HomePageContainer>
+    </div>
+  );
+};
+
+export default HomePage
