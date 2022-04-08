@@ -15,6 +15,7 @@ import {FilterPage} from '../../components/filter/index'
 
 const HomePage = () => {
   const [movieData, setMovieData] = useState([]);
+  const [page, setPage] = useState(1)
 
   const history = useHistory();
 
@@ -35,7 +36,7 @@ const HomePage = () => {
 
   
 
-  const [page, setPage] = useState(1)
+ 
 
     const pageNext = (number) => {
         setPage(page + number)
@@ -62,7 +63,7 @@ const HomePage = () => {
        
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} onClick={() => goToDetailsPage(history, movie.id)}/>
         
-        <p>{movie.title}</p>
+        <h4>{movie.title}</h4>
         <p>{movie.release_date}</p>
         </Card>      
 
@@ -88,8 +89,8 @@ const HomePage = () => {
            
 
      
-    {/* <button onClick={(() =>{pageBack(1)})}> VOLTAR </button> */}
-    {/* <NextButton onClick={(() =>{pageNext(2)})}> PROXIMO </NextButton> */}
+  {/* <button onClick={(() =>{pageBack(1)})}> VOLTAR </button> 
+  <button onClick={(() =>{pageNext(1)})}> PROXIMO </button> */}
      
 
     </HomePageContainer>

@@ -10,6 +10,7 @@ background-color: #5C16C5;
 
 export const RetangleOne = styled.div`
 width: 100%;
+
 height: 56px;
 display: flex;
 align-items: center;

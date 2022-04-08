@@ -18,7 +18,7 @@ left: 0px;
 top: 141px;
 font-style: normal;
 font-weight: 500;
-font-size: 49px;
+font-size: 40px;
 line-height: 56px;
 text-align: center;
 letter-spacing: -0.005em;

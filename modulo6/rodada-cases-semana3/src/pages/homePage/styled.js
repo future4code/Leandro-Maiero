@@ -23,6 +23,29 @@ margin-top: 50px;
 img{
       width: 100%;
 }
+h4{
+
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #000000
+}
+p{
+
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 24px;
+display: flex;
+align-items: center;
+color: #646464;
+}
 `
 export const NextButton = styled.div`
 position: static;
