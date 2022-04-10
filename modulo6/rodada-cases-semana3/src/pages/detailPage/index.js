@@ -6,6 +6,7 @@ import { BASE_URL } from '../../constants/BASE_URL';
 import { API_KEY } from '../../constants/API_KEY';
 import Header from '../../components/header/index';
 import { goToDetailsPage } from '../../routes/coordinator';
+
 import {
   DetailsContainer,
   CardDetail,
@@ -34,6 +35,7 @@ const DetailsPage = () => {
   const [detailData, setDetailData] = useState([]);
   const [cast, setCast] = useState([])
   const [recommendations, setRecommendations] = useState([])
+
   
 
   
@@ -80,15 +82,17 @@ const castActor = cast.map((cast) =>{
   )
 })
 
-  
+ const clickRecommendation = (id) =>{
+   goToDetailsPage(history, id)
+ } 
 
  
-
+ 
   
-  function getRecomendations(setRecommendations, id) {
+  function getRecommendations(setRecommendations, id) {
 
     axios
-        .get(`${BASE_URL}/movie/${id}/recommendations?${API_KEY}&language=pt-BR&page=1`)
+        .get(`${BASE_URL}/movie/${id}/recommendations?${API_KEY}&language=pt-BR`)
         .then((res) => {
             setRecommendations(res.data.results)
         })
@@ -98,15 +102,18 @@ const castActor = cast.map((cast) =>{
 }
 
 const recommendationList = recommendations.map((item) => {
+  
     
     return (
 
-        <div key = {item.id}>
-        <RecomendationsCard >
+        <div key = {item.id} >
+        <RecomendationsCard  onClick={() =>clickRecommendation(item.id)} >
 
-            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}onClick={() => goToDetailsPage(history, item.id)}/>
+            
+
+            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
            
-            <h3>{item.title}</h3>
+            <p>{item.title}</p>
                
             </RecomendationsCard>
         </div>
@@ -124,7 +131,7 @@ const recommendationList = recommendations.map((item) => {
 useEffect(() => {
   getDetails(setDetailData, params.id);
   getMovieCast(setCast, params.id)
-  getRecomendations(setRecommendations, params.id)
+  getRecommendations(setRecommendations, params.id)
 
   
 }, []);
@@ -148,7 +155,7 @@ useEffect(() => {
     
         <VoteAverage>
         
-          {detailData.vote_average}     %
+          {detailData.vote_average * 10}     %
           
         </VoteAverage>
        

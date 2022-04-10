@@ -16,6 +16,7 @@ import {FilterPage} from '../../components/filter/index'
 const HomePage = () => {
   const [movieData, setMovieData] = useState([]);
   const [page, setPage] = useState(1)
+  
 
   const history = useHistory();
 
