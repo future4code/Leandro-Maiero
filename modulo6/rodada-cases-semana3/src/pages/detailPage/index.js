@@ -37,6 +37,7 @@ const DetailsPage = () => {
   const [recommendations, setRecommendations] = useState([])
 
   
+  
 
   
   const history = useHistory();
@@ -50,7 +51,7 @@ const DetailsPage = () => {
         setData(res.data);
       })
       .catch((err) => {
-        console.log(err.message);
+        alert(err.response.message);
       });
   };
 
@@ -64,7 +65,7 @@ const DetailsPage = () => {
             
         })
         .catch((err) => {
-          console.log(err.message);
+          alert(err.response.message);
         })
 }
   
@@ -82,8 +83,8 @@ const castActor = cast.map((cast) =>{
   )
 })
 
- const clickRecommendation = (id) =>{
-   goToDetailsPage(history, id)
+  const clickRecommendation = (id) =>{
+    goToDetailsPage(history, id)
  } 
 
  
@@ -91,49 +92,45 @@ const castActor = cast.map((cast) =>{
   
   function getRecommendations(setRecommendations, id) {
 
-    axios
-        .get(`${BASE_URL}/movie/${id}/recommendations?${API_KEY}&language=pt-BR`)
+    axios.get(`${BASE_URL}/movie/${id}/recommendations?${API_KEY}&language=pt-BR&page=1`)
         .then((res) => {
             setRecommendations(res.data.results)
         })
         .catch((err) => {
-          console.log(err.message);
+          alert(err.response);
         })
 }
 
-const recommendationList = recommendations.map((item) => {
+const recommendationList = recommendations.length > 0 && recommendations.map((item) => {
   
     
     return (
 
-        <div key = {item.id} >
-        <RecomendationsCard  onClick={() =>clickRecommendation(item.id)} >
+        
+        <RecomendationsCard  key={item.id}>
 
-            
-
-            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}/>
+        <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+        alt ={`Poster filme`}
+        onClick={() => clickRecommendation( item.id)}/>
            
-            <p>{item.title}</p>
+        <div key={item.id}>
+
+        <p>{item.title}</p>
+
+        </div>
+            
                
             </RecomendationsCard>
-        </div>
+        
     )
 })  
-                
+              
             
- 
-
-
-
-
-
 
 useEffect(() => {
   getDetails(setDetailData, params.id);
   getMovieCast(setCast, params.id)
-  getRecommendations(setRecommendations, params.id)
-
-  
+  getRecommendations(setRecommendations, params.id)  
 }, []);
 
 
@@ -143,48 +140,39 @@ useEffect(() => {
       
       <DetailsContainer>
     
-        <CardDetail src={`https://image.tmdb.org/t/p/original/${detailData.poster_path}`} />
+        <CardDetail src={`https://image.tmdb.org/t/p/original/${detailData.poster_path}`} 
+                    alt ={`Poster filme`}/>
         <TitleText>
           {detailData.title}
         </TitleText>
 
         <AvaliaçãoText>
           <p>Avaliação dos usuários</p>
-        </AvaliaçãoText>
-
-    
-        <VoteAverage>
-        
+        </AvaliaçãoText>    
+        <VoteAverage>        
           {detailData.vote_average * 10}     %
-          
-        </VoteAverage>
-       
-
+        </VoteAverage>  
         <DateMovie>
           {detailData.release_date} -  {detailData.runtime}  Min
         </DateMovie>
-
         <Sinopse>
           <p>Sinopse:</p>
         </Sinopse>
         <OverviewText>
-          {detailData.overview}
-          
-        </OverviewText>
-
-        
-        
+          {detailData.overview}          
+        </OverviewText>        
       </DetailsContainer>
-
       <StyledCastDetails>
         <CostText>Elenco original</CostText>
         {castActor}
       </StyledCastDetails>
-     <RecomendationsDetails>
+      
+<RecomendationsDetails>
        <RecomendaText>Recomendações</RecomendaText>
        {recommendationList}
      </RecomendationsDetails>
-    </div>
+
+     </div>
   );
 };
 

@@ -34,7 +34,7 @@ position: absolute;
 width: 696px;
 height: 120px;
 left: 528px;
-top: 340px;
+top: 385px;
 
 font-style: normal;
 font-weight: 400;
