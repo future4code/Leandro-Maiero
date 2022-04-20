@@ -1,20 +1,57 @@
-import { BrowserRouter, Route } from "react-router-dom"
-import { HomePage } from "../pages/HomePage/HomePage"
-import { Switch } from "react"
+import {Switch, Route} from "react-router-dom"
+import Megasena from "../pages/Megasena/index"
+import DiaDeSorte from "../pages/DiaDeSorte/index"
+import Lotofacil from "../pages/Lotofacil/index"
+import Lotomania from "../pages/Lotomania/index"
+import Quina from "../pages/Quina/index"
+import Timemania from "../pages/Timemania/index"
 
 
 
 
-export const Router = () => {
-    return(
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/">
-                    <HomePage />
-                </Route>
+const Router = () =>{
+
+    return (
+        
+          
+        <Switch>
+
                
-            </Switch>
-        </BrowserRouter>
+        <Route exact path="/">
+        <Megasena />
+        
+
+      </Route>
+
+      <Route exact path="/diadesorte">
+        <DiaDeSorte />
+      </Route>
+
+      <Route exact path="/lotofacil">
+        <Lotofacil />
+      </Route>
+
+      <Route exact path="/lotomania">
+        <Lotomania />
+      </Route>
+
+      <Route exact path="/quina">
+        <Quina />
+      </Route>
+
+      <Route exact path="/timemania">
+        <Timemania />
+      </Route>
+
+      
+        </Switch>
+          
+
     )
+
+
+
+
 }
 
+export default Router
