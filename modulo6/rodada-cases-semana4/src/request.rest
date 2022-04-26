@@ -1,0 +1,14 @@
+POST  http://localhost:3003/products
+Content-Type: application/json
+
+{
+"name": "VESTIDO TRICOT CHEVRON",
+"tags": ["balada", "neutro", "delicado", "festa"]
+}
+
+###
+GET http://localhost:3003/products
+
+
+###
+GET http://localhost:3003/products?tags=balada
